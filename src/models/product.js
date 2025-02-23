@@ -3,8 +3,7 @@ const { Schema, model } = require('mongoose')
 const productSchema = new Schema({
     productName: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     frequency: {
         type: Number,
@@ -20,5 +19,8 @@ const productSchema = new Schema({
     timestamps: true
 }
 )
+
+productSchema.index({ productName: 1 }, { unique: true }); 
+productSchema.index({ frequency: -1 });
 
 module.exports = new model("Product", productSchema)

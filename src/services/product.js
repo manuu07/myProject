@@ -2,7 +2,15 @@ const Product = require('../models/product')
 
 const addProduct = async function (productData) {
     try {
-        const product = new Product(productData);
+        const existingProduct = await Product.findOne({ 
+            productName: { $regex: new RegExp(`^${productData.productName}$`, 'i') } 
+        });
+
+        if (existingProduct) {
+            return { error: "Product with this name already exists." };
+        }
+
+       const product = new Product(productData);
         await product.save();
         return product;
     } catch (err) {

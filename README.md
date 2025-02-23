@@ -15,7 +15,7 @@ This API provides **real-time search suggestions** with **auto-completion** and 
 ### **1️⃣ Prerequisites**
 - **Node.js** (v16+ recommended)
 - **MongoDB** (local or cloud instance)
-- **pnpm** (preferred package manager)
+- **npm** (preferred package manager)
 
 ### **2️⃣ Clone the Repository**
 ```sh
